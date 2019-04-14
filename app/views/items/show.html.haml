@@ -37,7 +37,11 @@
           %tr.tops_show__main--bland
             %th.tops_show__main--bland-left ブランド
             %td.tops_show__main--bland-right
-              = link_to "#{@item.brands.first.name}","",class: "tops_show__main--bland-right-name"
+
+              - if @item.brands == []
+                = link_to "ブランドなし",class: "tops_show__main--bland-right-name"
+              - else
+                = link_to "#{@item.brands.first.name}","",class: "tops_show__main--bland-right-name"
           %tr.tops_show__main--product-status
             %th.tops_show__main--product-status-left 商品の状態
             %td.tops_show__main--product-status-right
